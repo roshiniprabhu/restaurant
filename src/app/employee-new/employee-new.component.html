@@ -1,0 +1,114 @@
+<p-card>
+    <div class="row align-i tems-center vh-100">
+        <div class="col-5 mx-auto">
+            <div class="card shadow border">
+                <div class="card-body d-flex flex-column align-items-center">
+                    <form [formGroup]="employeeNew">
+                        <h4>Employees Details</h4>
+                        <div class="row">
+                            <div class="col-sm-10">
+                                <!-- <div class="form-group">
+
+                                    <label for="Id">
+                                        <span translate>ID</span>
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div>
+                                        <input type="number" pInputText formControlName="Id" id="Id" maxlength="1000" />
+                                    </div>
+                                    <div *ngIf="submitted && employeeNew.controls['Id'].invalid" class="text-danger">
+                                        <div *ngIf="employeeNew.controls['Id'].errors">Id is required</div>
+                                    </div>
+                                </div> -->
+                                <div class="form-group">
+                                    <label for="Name">
+                                        <span translate>NAME</span>
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div>
+                                        <input type="text" pInputText formControlName="Name" id="Name"
+                                            maxlength="100" />
+                                    </div>
+                                    <div *ngIf="submitted && employeeNew.controls['Name'].invalid" class="text-danger">
+                                        <div *ngIf="employeeNew.controls['Name'].errors">Name is required</div>
+                                        <div *ngIf="employeeNew.controls['Name'].errors">Name can not Contain Space
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Email">
+                                        <span translate>Email</span>
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div>
+                                        <input type="email" pInputText formControlName="Email" id="Email"
+                                            maxlength="100" />
+                                    </div>
+                                    <div *ngIf="submitted && employeeNew.controls['Email'].invalid" class="text-danger">
+                                        <div *ngIf="employeeNew.controls['Email'].errors">Email is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Phone">
+                                        <span translate>Phone</span>
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div>
+                                        <input type="number" pInputText formControlName="Phone" id="Phone"
+                                            maxlength="10" />
+                                    </div>
+                                    <div *ngIf="submitted && employeeNew.controls['Phone'].invalid" class="text-danger">
+                                        <div *ngIf="employeeNew.controls['Phone'].errors">Phone is required</div>
+                                        <!-- <div *ngIf="employeeNew.errors.pattern">Invalid phone number.</div> -->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Salary">
+                                        <span translate>Salary</span>
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div>
+                                        <input type="number" pInputText formControlName="Salary" onpaste="return false;"
+                                            id="Salary" maxlength="10" />
+                                    </div>
+                                    <div *ngIf="submitted && employeeNew.controls['Salary'].invalid"
+                                        class="text-danger">
+                                        <div *ngIf="employeeNew.controls['Salary'].errors">Salary is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Departmant">
+                                        <span translate>Departmant</span>
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div>
+                                        <p-dropdown [options]="departments" formControlName="Department"
+                                            placeholder="department" optionLabel="department">
+                                            <ng-template let-name pTemplate="item">{{name.department}}</ng-template>
+                                        </p-dropdown>
+
+                                        <!-- <p-dropdown [options]="departments" formControlName="Departmant" placeholder="department"
+                                            optionLabel="department" [(ngModel)]="selectedDepartment"></p-dropdown> -->
+                                    </div>
+                                    <div *ngIf="submitted && employeeNew.controls['Departmant']?.invalid"
+                                        class="text-danger">
+                                        <div *ngIf="employeeNew.controls['Departmant'].errors">Departmant is required
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-grid gap-2 m-3">
+                                    <button [disabled]="!employeeNew.valid" (click)="onSubmit()"
+                                        class="btn btn-primary">
+                                        Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</p-card>

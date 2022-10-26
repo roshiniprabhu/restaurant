@@ -1,0 +1,139 @@
+<p-card>
+<div class="row align-i tems-center vh-100">
+    <div class="col-5 mx-auto">
+        <div class="card shadow border">
+           <div class="card-body d-flex flex-column align-items-center">
+                <form [formGroup]="registerNew">
+                    <h4>Employees Details</h4>
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <div class="form-group">
+
+                                <label for="EmpId">
+                                    <span >Employee Id</span>
+                                    <span class="required">*</span>
+                                </label>
+                                <div>
+                                    <input type="text"  formControlName="EmpId" id="EmpId" maxlength="1000" />
+                                </div>
+                                <div *ngIf="submitted && registerNew.controls['EmpId'].invalid" class="text-danger">
+                                    <div *ngIf="registerNew.controls['EmpId'].errors">Id is required</div>
+                                </div>
+                            </div> 
+                        <div  class="form-group" class="col-sm">
+                                <label for="Name">
+                                    <span >NAME</span>
+                                    <span class="required">*</span>
+                                </label>
+                                <div>
+                                    <input type="text"  formControlName="Name" id="Name" maxlength="100" />
+                                </div>
+                                <div *ngIf="submitted && registerNew.controls['Name'].invalid" class="text-danger">
+                                      <div *ngIf="registerNew.controls['Name'].errors">Name is required</div>
+                                      <div *ngIf="registerNew.controls['Name'].errors">Name can not Contain Space</div>
+                                </div>
+                        </div>
+                        <div >
+                                <label >Gender</label>
+                                <span class="required">*</span>
+                                <br/>
+                                <input class="form-check-input" type="radio" value="female" name="Gender" formControlName="Gender" ><label for="female"  class="form-check-label">Female</label>
+                                <input class="form-check-input" type="radio" value="male" name="Gender" formControlName="Gender" ><label for="male"  class="form-check-label">male</label> 
+                                <div *ngIf="submitted && registerNew.controls['Gender'].invalid" class="alert alert-danger">
+                                    <div *ngIf="registerNew.controls['Gender'].errors"> Gender is required
+                                   </div>
+                                 </div>
+                        </div>
+                                              
+                        <div class="form-group">
+                                  <label for="Email">
+                                      <span >Email</span>
+                                      <span class="required">*</span>
+                                  </label>
+                                  <div>
+                                      <input type="email"  formControlName="Email" id="Email"
+                                          maxlength="100" />
+                                  </div>
+                                  <div *ngIf="submitted && registerNew.controls['Email'].invalid" class="text-danger">
+                                      <div *ngIf="registerNew.controls['Email'].errors">Email is required</div>
+                                  </div>
+                        </div>
+                        <div class="form-group">
+                                  <label for="Phone">
+                                      <span >Phone</span>
+                                      <span class="required">*</span>
+                                  </label>
+                                  <div>
+                                      <input type="text"  formControlName="Phone" id="Phone"
+                                          maxlength="10" />
+                                  </div>
+                                  <div *ngIf="submitted && registerNew.controls['Phone'].invalid" class="text-danger">
+                                      <div *ngIf="registerNew.controls['Phone'].errors">Phone is required</div>
+                                      <!-- <div *ngIf="registerNew.errors.pattern">Invalid phone number.</div> -->
+                                  </div>
+                        </div>
+                        <div class="form-group">
+                              <div>
+                                <label>Password</label>
+                                <span class="required">*</span>
+                              </div>
+                              <div>
+                                <input type="Password" formControlName="Password">
+                              </div>
+                              <div *ngIf="submitted && registerNew.controls['Password'].invalid" class="alert alert-danger">
+                               <div *ngIf="registerNew.controls['Password'].errors">Password should not contain within 1 character
+                              </div>
+                              <div *ngIf="registerNew.controls['Password'].errors">Password should not exists more than 12 character</div>
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            
+                              <div>
+                                <label>Confirm Password</label>
+                                <span class="required">*</span>
+                              </div>
+                              <div>
+                                <input type="Password" formControlName="Cpassword">
+                                </div>
+                                <div *ngIf="submitted && registerNew.controls['Cpassword'].invalid" class="alert alert-danger">
+                                 <div *ngIf="registerNew.controls['Cpassword'].errors">Confirm Password and Password should be same
+                                </div>
+                                <div *ngif="registerNew.get('Cpoassword').errors.confirmPasswordValidator">
+                                    Passsword and Confirm Password didn't match.
+                                  </div>
+                                
+                              </div>
+                        </div>
+                        <div class="form-group">
+
+                                <label for="Address">Address</label>
+                                <span class="required">*</span>
+                                <textarea class="form-control" type="text" formControlName="Address" ></textarea>
+                                <div *ngIf="submitted && registerNew.controls['Address'].invalid" class="text-danger">
+                                  <div *ngIf="registerNew.controls['Address'].errors">Address is required</div>
+                                  <!-- <div *ngIf="registerNew.errors.pattern">Invalid phone number.</div> -->
+                              </div>
+                        </div>
+                        <div >
+                                <label >Users</label>
+                                 <span class="required">*</span>
+                                  <br/>
+                                <input class="form-check-input" type="radio" value="admin"  name="Users" formControlName="Users" ><label for="dmin"  class="form-check-label">Admin</label>
+                                <input class="form-check-input" type="radio" value="user" name="Users" formControlName="Users" ><label for="user"  class="form-check-label">User</label> 
+                            <div *ngIf="submitted && registerNew.controls['Users'].invalid" class="alert alert-danger">
+                              <div *ngIf="registerNew.controls['Users'].errors"> User is required</div>
+                            </div>
+                        </div>
+                              <div class="d-grid gap-2 m-3">
+                                  <button type="submit" [disabled]= "!registerNew.valid" (click)="onSubmit()"
+                                      class="btn btn-primary">
+                                      Submit</button>
+                              </div>
+                          </div>
+                      </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</p-card>

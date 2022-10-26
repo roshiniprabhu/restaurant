@@ -1,0 +1,20 @@
+<div class="card"  style="padding-top: 10px;background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(82,9,121,1) 0%, rgba(82,53,150,1) 26%, rgba(122,69,160,1) 41%, rgba(66,85,170,1) 54%, rgba(184,35,210,1) 76%, rgba(0,212,255,1) 95%);">
+    <h2>Food Details</h2>
+ </div>
+ <div class="container">
+    <table class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>Body</th>
+        <th>Title</th>
+        <th>UserID</th>
+      </tr>
+      <tr *ngFor="let food of foods">
+        <td>{{ food.id }}</td>
+        <td>{{ food.body }}</td>
+        <td>{{ food.title }}</td>
+        <td>{{ food.userId }}</td>
+      </tr>
+    </table>
+  </div>

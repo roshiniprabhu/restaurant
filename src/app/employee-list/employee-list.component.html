@@ -1,0 +1,46 @@
+
+<div >
+  <p-table [value]="employees" styleClass="p-datatable-gridlines;" [paginator]="true" [rows]="5" sortMode="multiple"  >
+      <ng-template pTemplate="caption" >
+        Employees List
+        <button  pButton pRipple type="button"  style="float: right; height: 7px; font-size: 1rem;" routerLink="/employee/new" >
+          <i class="fa-regular fa-plus"></i>
+          New
+        </button>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="Id">Id<p-sortIcon field="Id"></p-sortIcon></th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>phone</th>
+          <th>Salary</th>
+          <th>Department</th>
+          
+         
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-employee>
+        <tr>
+          <td>{{employee.id}}</td>
+          <td>{{employee.name}}</td>
+          <td>{{employee.email}}</td>
+          <td>{{employee.phone}}</td>
+          <td>{{employee.salary}}</td>
+          <td>{{employee.department}}</td>
+          <td><span><button type="button" class="btn btn-icon" style="background-color:orange; "  (click)="edit(employee.id)" >
+              <i class="fa-solid fa-pen-to-square" ></i>
+            </button></span>
+            <span style="padding-left: 15px;">
+            <button type="button" class="btn btn-icon"  style="background-color:red ;" (click)=" deleteEmployeeList(employee.id)">
+              
+              <i class="pi pi-trash"></i>
+            </button></span></td>
+        </tr>
+      </ng-template>
+      <!-- <ng-template pTemplate="summary">
+        Total Employees: {{ totalCount }}
+      </ng-template> -->
+    </p-table>
+  </div>
+  

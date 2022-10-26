@@ -1,0 +1,47 @@
+<div >
+<div class="container" >
+    <div class="row align-i tems-center vh-100">
+        <div class="col-6 mx-auto">
+            <div class="card shadow border">
+                <div class="card-body d-flex flex-column align-items-center" style="box-shadow: blue 0px 0px 0px 2px inset, rgb(97, 160, 215) 10px -10px 0px -3px, rgb(27, 80, 193) 10px -10px, rgb(70, 147, 173) 20px -20px 0px -3px, rgb(77, 136, 178) 20px -20px;
+                background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(82,9,121,1) 0%, rgba(82,53,150,1) 26%, rgba(122,69,160,1) 41%, rgba(66,85,170,1) 54%, rgba(184,35,210,1) 76%, rgba(0,212,255,1) 95%);">
+                    <form   [formGroup]="loginForm">
+                        <div class="form-group " >
+                            <div>
+                                <img src="./assets/rest.jpg" alt="#" style="width: 150px ; padding-left: 76px;" class="center" >
+                            </div>
+                            <div>
+                                <label for="username">Username</label>
+                                <input class="form-control" type="text" placeholder="username"
+                                    formControlName="username" aria-label="default input example">
+                                
+                                <div *ngIf="submitted && loginForm.controls['username'].invalid"
+                                    class="alert alert-danger">
+                                    <div *ngIf="loginForm.controls['username'].errors">Username is required
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                            <label for="password">Password</label>
+                            <input class="form-control" type="password" placeholder="password"
+                                formControlName="password" >
+                            
+                            <div *ngIf="submitted && loginForm.controls['password'].invalid" class="alert alert-danger">
+                                <div *ngIf="loginForm.controls['password'].errors">Password is required</div>
+                            </div>
+                            <div class="d-grid gap-2 m-3">
+                                <button type="submit" (click)="onSubmit()" class="btn btn-primary" >Login</button>
+                            </div>
+                            <div class="d-grid gap-2 m-3">
+                                <a  class="btn btn-link" routerLink="/register" >Register</a>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
